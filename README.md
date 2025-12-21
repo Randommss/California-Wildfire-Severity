@@ -9,6 +9,7 @@ Table Of Content:
 
 Problem: Predicting magnitude of wildfire severity using: Area_Burned (Acres), Estimated_Financial_loss (Million $)
          Classification of severity class like low, medium, high and extreme.
+         
 Data Understanding: The data set that I used for this project is extracted from Kaggle website, 
                     url:  kaggle.com/datasets/vivekattri/california-wildfire-damage-2014-feb2025?select=California+Wildfire+Damage.csv 
 The data set contains 101 rows and 11 columns.
@@ -27,7 +28,6 @@ Data Preparation:
 First the data is loaded into pandas dataframe, then data is cleaned like standardizing clumn names to make it more consistent, then feature scaling, temporal features in Date Columns like Year, month, dayofyear, season and many more. Then used a severity classification label like low (<10,000), Medium (10,000–24,999), High (25,000–39,999) and Extreme (≥40,000). Then predicted the Area_Burned_Acres and Estimated_Financial_Loss_Million. Then, used a RF model for futher classification.
 
 Modeling: Random Forest modelling is used for this project. Itcreates a large collection of decision trees and merges their outputs, allowing the model to deliver predictions that are more reliable and consistent than any single tree could provide.
-
 rf_class = RandomForestClassifier(
     n_estimators=300, # creates 300 decision trees, more tree implies more stable predictions.
     max_depth=15, # Limits how deep each decision tree can grow, preventing overfitting.
@@ -35,8 +35,8 @@ rf_class = RandomForestClassifier(
     random_state=42 # Sets a fixed seed so the model produces the same results every time, ensuring full reproducibility of your experiments.
 )
 
-Evaluation: Area Burned, Fianancial Loss and Confusion mtrix-severity classification
 
+Evaluation: Area Burned, Fianancial Loss and Confusion mtrix-severity classification
 Area Burned Prediction:
 RMSE: 28140.754820335176
 R²: -4.023705408619031
