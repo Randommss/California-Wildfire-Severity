@@ -1,6 +1,9 @@
 Title: California-Wildfire-Severity 
+
 Student Name: Kritika Pantha 
+
 Student ID: PA3221350
+
 Abstract: Predicting and classifying California Wildfire Severity using Random Forest Model
 Table Of Content:
 
