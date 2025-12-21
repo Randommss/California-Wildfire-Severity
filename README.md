@@ -11,7 +11,9 @@ Problem: Predicting magnitude of wildfire severity using: Area_Burned (Acres), E
          Classification of severity class like low, medium, high and extreme.
          
 Data Understanding: The data set that I used for this project is extracted from Kaggle website, 
+
                     url:  kaggle.com/datasets/vivekattri/california-wildfire-damage-2014-feb2025?select=California+Wildfire+Damage.csv 
+                    
 The data set contains 101 rows and 11 columns.
 Date: The calendar date on which the wildfire occurred or was reported.
 Location: The county or region where the wildfire took place.
