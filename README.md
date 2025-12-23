@@ -5,6 +5,7 @@ Student Name: Kritika Pantha
 Student ID: PA3221350
 
 Abstract: Predicting and classifying California Wildfire Severity using Random Forest Model
+
 Table Of Content:
 
 Problem: Predicting magnitude of wildfire severity using: Area_Burned (Acres), Estimated_Financial_loss (Million $)
@@ -39,10 +40,15 @@ rf_class = RandomForestClassifier(
 
 
 Evaluation: Area Burned, Fianancial Loss and Confusion mtrix-severity classification
+
 Area Burned Prediction:
+
 RMSE: 28140.754820335176
 R²: -4.023705408619031
+
+
 Financial Loss Prediction:
+
 RMSE: 26518.393607799142
 R²: -3.461152861357899
 
