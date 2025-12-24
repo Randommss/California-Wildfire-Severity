@@ -1,21 +1,54 @@
-Title: California-Wildfire-Severity 
+California Wildfire Severity Prediction with Machine Learning
+---
 
-Student Name: Kritika Pantha 
-
+Student Name: Kritika Pantha
 Student ID: PA3221350
+
+---
 
 Abstract: Predicting and classifying California Wildfire Severity using Random Forest Model
 
-Table Of Content:
+---
 
-Problem: Predicting magnitude of wildfire severity using: Area_Burned (Acres), Estimated_Financial_loss (Million $)
-         Classification of severity class like low, medium, high and extreme.
+Table of Content
+
+Problem
+Data Understanding
+Data Preparation
+Modeling
+Evaluation
+References
+
+---
+
+Problem
+
+California experiences frequent and increasingly severe wildfires that cause large-scale environmental damage, economic loss, and human casualties.
+1. Predicting magnitude of wildfire severity using: Area_Burned (Acres) and Estimated_Financial_loss (Million $)
+2. Classification of severity class like low, medium, high and extreme.
          
-Data Understanding: The data set that I used for this project is extracted from Kaggle website, 
+---
 
-                    url:  kaggle.com/datasets/vivekattri/california-wildfire-damage-2014-feb2025?select=California+Wildfire+Damage.csv 
+Challenges to Overcome
+
+- **Small dataset size:** Only 101 wildfire records
+- **Highly skewed target variables:** Area burned and financial loss vary significantly
+- **Class imbalance:** Extreme wildfire events are rare
+- **Non-linear relationships:** Severity depends on multiple interacting factors
+- **Temporal patterns:** Seasonal and yearly variations in wildfire occurrence
+- **Mixed feature types:** Numerical, categorical, and temporal variables
+
+---
+
+Data Understanding
+
+The data set that I used for this project is extracted from Kaggle website.
+
+url:  kaggle.com/datasets/vivekattri/california-wildfire-damage-2014-feb2025?select=California+Wildfire+Damage.csv 
                     
 The data set contains 101 rows and 11 columns.
+
+Incident_ID: The unique ID of the particular incident
 Date: The calendar date on which the wildfire occurred or was reported.
 Location: The county or region where the wildfire took place.
 Area_Burnt: Total land area burned by the wildfire, measured in acres.
@@ -27,10 +60,29 @@ Fatalities: Number of deaths caused by the wildfire.
 Estimated_Financial_Loss (Million $): Total estimated economic loss caused by the wildfire, expressed in millions of dollars.
 Cause: The identified or suspected cause of the wildfire (e.g., Lightning, Human Activity, Unknown).
 
-Data Preparation: 
-First the data is loaded into pandas dataframe, then data is cleaned like standardizing clumn names to make it more consistent, then feature scaling, temporal features in Date Columns like Year, month, dayofyear, season and many more. Then used a severity classification label like low (<10,000), Medium (10,000–24,999), High (25,000–39,999) and Extreme (≥40,000). Then predicted the Area_Burned_Acres and Estimated_Financial_Loss_Million. Then, used a RF model for futher classification.
+---
 
-Modeling: Random Forest modelling is used for this project. Itcreates a large collection of decision trees and merges their outputs, allowing the model to deliver predictions that are more reliable and consistent than any single tree could provide.
+Data Preparation
+
+- Loaded data into a Pandas DataFrame
+- Standardized column names for consistency
+- Extracted temporal features from the `Date` column:
+- `year`, `month`, `day_of_year`, `season`
+- Performed feature scaling for numerical stability
+- Created wildfire **severity labels** based on area burned:
+- **Low:** &lt; 10,000 acres
+- **Medium:** 10,000 – 24,999 acres
+- **High:** 25,000 – 39,999 acres
+- **Extreme:** ≥ 40,000 acres
+- Prepared datasets for:
+- **Regression:** Area burned and financial loss
+- **Classification:** Wildfire severity class
+
+---
+
+Modeling
+
+Random Forest modelling is used for this project. Itcreates a large collection of decision trees and merges their outputs, allowing the model to deliver predictions that are more reliable and consistent than any single tree could provide.
 rf_class = RandomForestClassifier(
     n_estimators=300, # creates 300 decision trees, more tree implies more stable predictions.
     max_depth=15, # Limits how deep each decision tree can grow, preventing overfitting.
@@ -38,19 +90,21 @@ rf_class = RandomForestClassifier(
     random_state=42 # Sets a fixed seed so the model produces the same results every time, ensuring full reproducibility of your experiments.
 )
 
+---
 
-Evaluation: Area Burned, Fianancial Loss and Confusion mtrix-severity classification
+Evaluation
 
-Area Burned Prediction:
+### Area Burned Prediction (Regression)
 
-RMSE: 28140.754820335176
-R²: -4.023705408619031
+- **RMSE:** 28,140.75
+- **R²:** -4.02
 
+### Financial Loss Prediction (Regression)
 
-Financial Loss Prediction:
+- **RMSE:** 26,518.39
+- **R²:** -3.46
 
-RMSE: 26518.393607799142
-R²: -3.461152861357899
+---
 
 Confusion Matrix - Severity Classification
 
@@ -65,7 +119,7 @@ Confusion Matrix - Severity Classification
     macro avg       0.12      0.14      0.13        20
  weighted avg       0.19      0.20      0.19        20
 
-References:
+Reference:
 
 Retrieved from 
 kaggle.com/datasets/vivekattri/california-wildfire-damage-2014-feb2025?select=California+Wildfire+Damage.csv, 
